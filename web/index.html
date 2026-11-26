@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Вектор успеха — учебная платформа</title>
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="widget.css">
 </head>
 <body class="auth">
 <div id="auth"><div class="card">
@@ -150,5 +151,20 @@
 
 </main>
 <script src="script.js"></script>
+
+<!-- Виджет бота поддержки -->
+<button id="chat-toggle" aria-label="Открыть чат с помощником">💬</button>
+<div id="chat-panel" hidden>
+  <div id="chat-header">Помощник «Вектор успеха»</div>
+  <div id="chat-messages">
+    <div class="chat-msg bot">Здравствуйте! Я помощник платформы. Спросите про баллы, дедлайны, контрольные или курсы.</div>
+  </div>
+  <div id="chat-form">
+    <input id="chat-input" type="text" placeholder="Ваш вопрос" aria-label="Ваш вопрос">
+    <button id="chat-send">Отправить</button>
+  </div>
+</div>
+<script src="widget.js"></script>
+
 </body>
 </html>
