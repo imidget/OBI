@@ -1,7 +1,7 @@
 const pages=[["home","Главная"],["lesson","Урок"],["rating","Рейтинг"],["review","Работа над ошибками"],["theory","Теория"],["practice","Практика"],["courses","Дополнительные курсы"],["homework","Домашнее задание"],["chat","Чат с преподавателем"],["motivation","Мотивация"],["gifts","Подарочки"],["favs","Избранное"],["sep"],["settings","Настройки"],["profile","Профиль"]];
 const nav=document.getElementById('nav');
 function buildNav(role){const p=pages.slice();if(role=='teacher')p.splice(1,0,["students","Ученики"]);
-nav.innerHTML='<div class="logo">Тихая школа</div>'+p.map(x=>x[0]=="sep"?'<div class="sep"></div>':`<button data-go="${x[0]}">${x[1]}</button>`).join('')+'<div class="sep"></div><button data-act="out">Выйти</button>'}
+nav.innerHTML='<div class="logo">Вектор успеха</div>'+p.map(x=>x[0]=="sep"?'<div class="sep"></div>':`<button data-go="${x[0]}">${x[1]}</button>`).join('')+'<div class="sep"></div><button data-act="out">Выйти</button>'}
 function go(id){document.querySelectorAll('section').forEach(s=>s.classList.toggle('on',s.id==id));nav.querySelectorAll('button').forEach(b=>b.classList.toggle('on',b.dataset.go==id));scrollTo(0,0);if(cur&&cur.r=='teacher'){if(id=='rating'){rsel.value=curCls;renderRating()}if(id=='homework'){hwsel.value=curCls}}if(id=='homework')renderHW()}
 document.addEventListener('click',e=>{const t=e.target.closest('[data-go]');if(t)go(t.dataset.go)});
 const Q=[["Сколько будет 50% от 80?",["20","40","60"],1],["Как записать 0,3 в процентах?",["3%","30%","0,3%"],1],["Чему равна 1/4 от 100?",["25","40","75"],0]];
