@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Тихая школа — учебная платформа</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="auth">
+<div id="auth"><div class="card">
+<h1 style="margin-bottom:.2em">Тихая школа</h1>
+<div class="tabs" id="arole"><button data-r="student" class="on">Ученик</button><button data-r="teacher">Учитель</button></div>
+<div class="tabs" id="amode"><button data-m="login" class="on">Вход</button><button data-m="reg">Регистрация</button></div>
+<div id="afields"></div>
+<p id="aerr" role="alert"></p>
+<button class="btn" id="asub" style="width:100%;margin-top:6px">Войти</button>
+<p style="font-size:13px;color:var(--mute);margin:14px 0 0">Аккаунты хранятся только в этом браузере и не заменяют полноценную защиту.</p>
+</div></div>
+<nav id="nav"></nav>
+<main>
+
+<section id="home">
+<h1 id="hello">Добрый день</h1>
+<p style="color:var(--mute)" id="hsub">Спокойно и по шагам: сегодня один урок и немного практики.</p>
+<div class="grid" style="margin-top:18px" id="hgrid">
+<div class="card go" data-go="lesson"><h3>Урок дня</h3><p>Тема 13: Дроби и проценты</p><div class="bar"><i style="width:35%"></i></div><span class="tag">1 из 3 шагов</span></div>
+<div class="card go" data-go="practice"><h3>Практика</h3><p>12 задач ждут вас</p></div>
+<div class="card go" data-go="review"><h3>Работа над ошибками</h3><p>3 задания на повтор</p></div>
+<div class="card go" data-go="rating"><h3>Рейтинг</h3><p>Вы на 3 месте в группе</p></div>
+</div>
+</section>
+
+<section id="lesson">
+<h1>Урок</h1>
+<div class="card">
+<div class="row"><h3>Контрольный вопрос</h3><span class="tag" id="qn">1 / 3</span></div>
+<p id="qt" style="color:var(--ink);font-size:17px"></p>
+<div id="qo"></div>
+<div class="row" style="margin-top:12px"><span id="qr" style="color:var(--mute)"></span><button class="btn" id="qnext" hidden>Дальше</button></div>
+</div>
+</section>
+
+<section id="rating"><h1 id="rtitle">Рейтинг класса</h1>
+<label id="rsw" hidden>Класс <select id="rsel" class="fld" style="max-width:200px"></select></label>
+<div class="card" id="rlist" style="margin-top:12px"></div></section>
+<section id="homework"><h1>Домашнее задание</h1>
+<div class="card" id="hwform" hidden style="margin-bottom:14px">
+<label>Класс <select id="hwsel" class="fld" style="max-width:200px"></select></label>
+<input class="fld" id="hwt" type="text" placeholder="Название, например: Проценты" aria-label="Название">
+<textarea class="fld" id="hwx" rows="3" placeholder="Описание задания" aria-label="Описание"></textarea>
+<p style="margin:12px 0 4px"><b>Задания из банка</b> <span style="color:var(--mute);font-size:14px">отметьте, что выдать классу</span></p>
+<div id="hwbank" style="max-height:230px;overflow:auto;border:1px solid var(--line);border-radius:12px;padding:6px 12px"></div>
+<details style="margin:10px 0"><summary style="cursor:pointer">Добавить своё задание с <a href="https://fipi.ru" target="_blank" rel="noopener" style="color:var(--sage-d)">fipi.ru</a></summary>
+<textarea class="fld" id="hwcq" rows="3" placeholder="Текст задания (скопируйте из открытого банка ФИПИ)" aria-label="Текст задания"></textarea>
+<input class="fld" id="hwca" type="text" placeholder="Правильный ответ (число)" aria-label="Правильный ответ">
+<button class="btn alt" id="hwcadd" type="button">Добавить в список</button></details>
+<label>Срок сдачи <input class="fld" id="hwd" type="date" style="max-width:200px"></label>
+<p id="hwerr" style="color:var(--bad);margin:4px 0;min-height:1.4em"></p>
+<button class="btn" id="hwadd">Добавить задание</button></div>
+<div id="hwlist"></div>
+<div id="hwprog"></div></section>
+
+<section id="review">
+<h1>Работа над ошибками</h1>
+<div class="grid">
+<div class="card"><h3>Задание 4</h3><p>Ответ «0,25» вместо «25%». Повторите перевод десятичных дробей в проценты.</p><br><button class="btn alt">Разобрать</button></div>
+<div class="card"><h3>Задание 7</h3><p>Ошибка в порядке действий. Скобки выполняются первыми.</p><br><button class="btn alt">Разобрать</button></div>
+<div class="card"><h3>Задание 9</h3><p>Не хватило единиц измерения в ответе.</p><br><button class="btn alt">Разобрать</button></div>
+</div>
+</section>
+
+<section id="theory">
+<h1>Теория</h1>
+<div class="grid">
+<div class="card"><h3>Суть темы</h3><p>Короткий конспект: что такое доля, как её записать дробью и процентом.</p></div>
+<div class="card"><h3>Видеоурок</h3><p>8 минут. Разбор на трёх примерах.</p><br><button class="btn alt">Смотреть</button></div>
+<div class="card"><h3>Загрузить свой видеоурок</h3><p>Расскажите тему своими словами и отправьте запись преподавателю.</p><br><button class="btn alt">Выбрать файл</button></div>
+</div>
+</section>
+
+<section id="practice">
+<h1>Практика: ОГЭ по математике</h1>
+<p style="color:var(--mute)">Задания в формате открытого банка ФИПИ, ответ — число. Полный банк: <a href="https://fipi.ru" target="_blank" rel="noopener" style="color:var(--sage-d)">fipi.ru</a></p>
+<div class="sw" id="chips"></div>
+<div class="card"><div class="row"><h3 id="ptitle"></h3><span class="tag" id="pcount"></span></div>
+<p id="ptext" style="color:var(--ink);font-size:17px"></p>
+<div class="row" style="margin-top:12px"><input type="text" id="pin" inputmode="decimal" placeholder="Ваш ответ" aria-label="Ваш ответ"><button class="btn" id="pchk">Проверить</button></div>
+<p id="pres" style="margin-top:12px"></p>
+<div class="row"><button class="btn alt" id="pprev">Назад</button><button class="btn alt" id="pnext">Следующее</button></div></div>
+</section>
+
+<section id="courses">
+<h1>Дополнительные курсы</h1>
+<p style="color:var(--mute)">Курсы подготовки к ЕГЭ разбиты на части: можно купить только то, что нужно.</p>
+<div class="grid">
+<div class="card"><h3>Математика: вся тестовая часть</h3><p>Все задания первой части ЕГЭ по профильной математике.</p><br><button class="btn" data-pay>Оплатить курс</button><p class="paymsg"></p></div>
+<div class="card"><h3>Математика: джентльменский набор</h3><p>Минимум тем, чтобы уверенно сдать экзамен.</p><br><button class="btn" data-pay>Оплатить курс</button><p class="paymsg"></p></div>
+<div class="card"><h3>Информатика: 26 задание</h3><p>Разбор одного из самых сложных заданий ЕГЭ по информатике.</p><br><button class="btn" data-pay>Оплатить курс</button><p class="paymsg"></p></div>
+</div></section>
+
+<section id="chat">
+<h1>Чат с преподавателем</h1>
+<div class="card">
+<div class="chat" id="msgs"><div class="msg">Здравствуйте! Напишите, где возникли сложности.</div></div>
+<div class="row"><input type="text" id="cin" placeholder="Сообщение" aria-label="Сообщение"><button class="btn" id="csend">Отправить</button></div>
+</div></section>
+
+<section id="motivation">
+<h1>Мотивация</h1>
+<div class="grid">
+<div class="card"><h3>Серия занятий</h3><p>6 дней подряд. Хороший ритм.</p></div>
+<div class="card"><h3>Цель недели</h3><p>5 уроков, пройдено 3.</p><div class="bar"><i style="width:60%"></i></div></div>
+<div class="card"><h3>Мысль дня</h3><p>Небольшой шаг каждый день важнее рывка раз в месяц.</p></div>
+</div></section>
+
+<section id="gifts">
+<h1>Подарочки</h1>
+<p style="color:var(--mute)">Баллы можно обменять на бонусы. Сейчас у вас <b id="gpts">0</b> баллов.</p>
+<p style="color:var(--mute)">Баллы дают за домашние задания: сдано вовремя — 10 баллов за задание, опоздание до 24 часов — половина (5), больше 24 часов — 0.</p>
+<div class="grid">
+<div class="card gift" data-need="30"><h3>Смайлик рядом с ником</h3><p>30 баллов</p><span class="tag"></span></div>
+<div class="card gift" data-need="50"><h3>Фото в профиле</h3><p>50 баллов</p><span class="tag"></span></div>
+<div class="card gift" data-need="80"><h3>Продление дедлайна ДЗ</h3><p>80 баллов. Купить можно только до дедлайна.</p><span class="tag"></span></div>
+<div class="card gift" data-need="150"><h3>Небольшой дополнительный курс</h3><p>150 баллов</p><span class="tag"></span></div>
+</div>
+<div class="card" style="margin-top:14px"><h3>Бонусы от учителя</h3><p>Учитель может добавить свои бонусы за баллы. Они появятся в этом разделе.</p></div>
+</section>
+
+<section id="favs">
+<h1>Избранное</h1>
+<div class="card"><div class="rank" style="padding-top:0"><span style="flex:1">Задача 4. Проценты от числа</span><button class="fav" aria-label="Убрать из избранного">★</button></div>
+<div class="rank" style="border:0"><span style="flex:1">Видеоурок: Дроби за 8 минут</span><button class="fav" aria-label="Убрать из избранного">★</button></div></div>
+</section>
+
+<section id="settings">
+<h1>Настройки</h1>
+<div class="card">
+<div class="sw"><label><input type="checkbox" checked> Напоминания об уроках</label></div>
+<div class="sw"><label><input type="checkbox"> Уведомления о рейтинге</label></div>
+<div class="sw"><label><input type="checkbox" id="dk"> Тёмная тема</label></div>
+</div></section>
+
+<section id="profile"><h1>Профиль</h1><div class="card" id="pcard"></div></section>
+<section id="classpage"><button class="btn alt" data-go="home">Все классы</button>
+<h1 id="cptitle" style="margin-top:16px"></h1>
+<div class="grid"><div class="card"><h3>Урок дня</h3><p>Тема 13: Дроби и проценты</p><div class="bar"><i style="width:35%"></i></div><br><button class="btn" data-go="lesson">Открыть урок</button></div>
+<div class="card"><h3>Домашнее задание</h3><p id="cphw"></p><br><button class="btn" data-go="homework">Добавить или посмотреть</button></div>
+<div class="card"><h3>Рейтинг класса</h3><div id="cplist"></div></div></div></section>
+<section id="students"><h1>Ученики</h1><div class="card" id="slist"></div></section>
+
+</main>
+<script src="script.js"></script>
+</body>
+</html>
