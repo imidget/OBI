@@ -1,5 +1,7 @@
 from flask import Flask, request, jsonify, send_from_directory
 
+from agent import handle_message
+
 app = Flask(__name__, static_folder="web", static_url_path="")
 
 
@@ -12,8 +14,8 @@ def index():
 def chat():
     data = request.get_json(silent=True) or {}
     message = data.get("message", "")
-    # Пока бот просто повторяет сообщение. Позже здесь будет вызов агента.
-    return jsonify({"reply": "Вы написали: " + message})
+    reply = handle_message(message)  # всю логику решает агент
+    return jsonify({"reply": reply})
 
 
 if __name__ == "__main__":
