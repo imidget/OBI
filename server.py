@@ -14,8 +14,10 @@ def index():
 def chat():
     data = request.get_json(silent=True) or {}
     message = data.get("message", "")
-    reply = handle_message(message)  # всю логику решает агент
-    return jsonify({"reply": reply})
+    if not isinstance(message, str):
+        message = ""  # защита от запроса, где вместо текста пришло что-то другое
+    result = handle_message(message)  # агент решает, что ответить
+    return jsonify({"reply": result["reply"], "case_id": result["case_id"]})
 
 
 if __name__ == "__main__":

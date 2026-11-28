@@ -89,7 +89,10 @@ def find_answer(message, entries):
             if not text_words:
                 continue
             common = message_words & text_words  # общие слова
-            score = len(common) / len(text_words)  # какая часть слов вопроса нашлась в сообщении
+            # Оценка от 0 до 1: учитывает, какая часть слов совпала и в вопросе из базы,
+            # и в сообщении. Так короткий вопрос из базы не «побеждает» только за счёт того,
+            # что в нём мало слов.
+            score = 2 * len(common) / (len(text_words) + len(message_words))
             if score > best_score:
                 best_score = score
                 best_entry = entry
